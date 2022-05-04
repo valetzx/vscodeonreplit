@@ -1,0 +1,1 @@
+run = ["code-server", "--auth", "password", "--user-data-dir=\"data\"", "--extensions-dir=\"extensions\"", "--bind-addr=0.0.0.0:8080", "--disable-telemetry", "--disable-update-check"]
