@@ -1,0 +1,36 @@
+body {
+    padding: 0;
+}
+pre {
+    padding: 0 10px;
+    margin: 0;
+}
+#container{
+    width: 100%;
+}
+#console{
+    border: 5px solid var(--vscode-editor-background);
+    background-color: var(--vscode-sideBar-background);
+    box-sizing: border-box;
+    min-height: 500px;
+    padding: 5px;
+    overflow-x: hidden;
+}
+#commandline{
+    border: 5px solid var(--vscode-editor-background);
+    background-color: var(--vscode-sideBar-background);
+    line-height: 24px;
+    font-size: 16px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--vscode-editor-foreground);
+}
+.cmsg {
+    margin-bottom: 5px;
+}
+.cmsg pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

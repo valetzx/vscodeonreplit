@@ -1,0 +1,198 @@
+{
+	"name": "vscode-qq",
+	"displayName": "QQ",
+	"description": "lite qq for chat in working",
+	"version": "1.4.2",
+	"engines": {
+		"vscode": "^1.53.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "oicq.contact.pin",
+				"title": "固定"
+			},
+			{
+				"command": "oicq.contact.unpin",
+				"title": "取消固定"
+			},
+			{
+				"command": "oicq.contact.profile",
+				"title": "查看资料"
+			},
+			{
+				"command": "oicq.tooltip.copy",
+				"title": "拷贝标签"
+			},
+			{
+				"command": "oicq.friend.delete",
+				"title": "删除好友"
+			},
+			{
+				"command": "oicq.group.delete",
+				"title": "退群"
+			},
+			{
+				"command": "oicq.group.invite",
+				"title": "邀请好友入群"
+			},
+			{
+				"command": "oicq.statusBar.click",
+				"title": "Login",
+				"category": "QQ Explorer"
+			},
+			{
+				"command": "oicq.friend.search",
+				"title": "搜索好友",
+				"category": "QQ Explorer"
+			},
+			{
+				"command": "oicq.group.search",
+				"title": "搜索群",
+				"category": "QQ Explorer"
+			},
+			{
+				"command": "oicq.pinned.refresh",
+				"icon": "$(refresh)",
+				"title": "刷新"
+			},
+			{
+				"command": "oicq.friends.refresh",
+				"icon": "$(refresh)",
+				"title": "刷新"
+			},
+			{
+				"command": "oicq.groups.refresh",
+				"icon": "$(refresh)",
+				"title": "刷新"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "qq-explorer",
+					"title": "QQ Explorer",
+					"icon": "ico.ico"
+				}
+			]
+		},
+		"views": {
+			"qq-explorer": [
+				{
+					"id": "chat-pinned",
+					"name": "固定"
+				},
+				{
+					"id": "chat-friends",
+					"name": "好友列表"
+				},
+				{
+					"id": "chat-groups",
+					"name": "群列表"
+				}
+			]
+		},
+		"menus": {
+			"view/item/context": [
+				{
+					"command": "oicq.contact.pin",
+					"when": "view == chat-friends || view == chat-groups"
+				},
+				{
+					"command": "oicq.contact.unpin",
+					"when": "view == chat-pinned"
+				},
+				{
+					"command": "oicq.contact.profile",
+					"when": "view == chat-friends || view == chat-groups || view == chat-pinned"
+				},
+				{
+					"command": "oicq.tooltip.copy",
+					"when": "view == chat-friends || view == chat-groups || view == chat-pinned"
+				},
+				{
+					"command": "oicq.friend.delete",
+					"when": "view == chat-friends"
+				},
+				{
+					"command": "oicq.group.invite",
+					"when": "view == chat-friends || view == chat-groups || view == chat-pinned"
+				},
+				{
+					"command": "oicq.group.delete",
+					"when": "view == chat-groups"
+				}
+			],
+			"view/title": [
+				{
+					"command": "oicq.pinned.refresh",
+					"group": "navigation",
+					"when": "view == chat-pinned"
+				},
+				{
+					"command": "oicq.friends.refresh",
+					"group": "navigation",
+					"when": "view == chat-friends"
+				},
+				{
+					"command": "oicq.groups.refresh",
+					"group": "navigation",
+					"when": "view == chat-groups"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^8.2.3",
+		"@types/node": "^12.20.16",
+		"@types/vscode": "^1.53.0",
+		"@types/ws": "^7.4.7",
+		"@typescript-eslint/eslint-plugin": "^4.28.4",
+		"@typescript-eslint/parser": "^4.28.4",
+		"eslint": "^7.31.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.5",
+		"vscode-test": "^1.6.1"
+	},
+	"dependencies": {
+		"get-port": "^5.1.1",
+		"oicq": "^1.21.3",
+		"ws": "^7.5.6"
+	},
+	"publisher": "takayama",
+	"license": "MPL-2.0",
+	"keywords": [
+		"qq",
+		"oicq"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/takayama-lily/vscode-qq"
+	},
+	"icon": "ico.ico",
+	"__metadata": {
+		"id": "4b28c800-f3c1-439b-9b76-4d3e52943961",
+		"publisherId": "bab6cdad-58e5-4778-9328-68df218950a3",
+		"publisherDisplayName": "takayama",
+		"isPreReleaseVersion": false,
+		"preRelease": false,
+		"installedTimestamp": 1647494311225
+	}
+}
